@@ -1,0 +1,14 @@
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.exe
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.deps.json
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.runtimeconfig.json
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.runtimeconfig.dev.json
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.dll
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\bin\Debug\netcoreapp3.1\ConsoleApppSeymur.pdb
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.csproj.AssemblyReference.cache
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.AssemblyInfoInputs.cache
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.AssemblyInfo.cs
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.csproj.CoreCompileInputs.cache
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.dll
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.pdb
+C:\Users\Seymur\Desktop\C_SHARP projects\ConsoleApppC#FinalSeymur\ConsoleApppSeymur\ConsoleApppSeymur\obj\Debug\netcoreapp3.1\ConsoleApppSeymur.genruntimeconfig.cache
