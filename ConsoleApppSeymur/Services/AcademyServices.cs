@@ -77,7 +77,7 @@ namespace ConsoleApppSeymur.Services
 
             }
         }
-        public void CreateStudent(string no, string fullname, string groupno, int entrypoint) {
+        public void CreateStudent( string fullname, string groupno, int entrypoint) {
 
             Student student = new Student(fullname,groupno,entrypoint);
             foreach (var item in Groups)
@@ -88,7 +88,7 @@ namespace ConsoleApppSeymur.Services
                     return; 
                 }
                
-                if (item.No.ToLower().Trim()==no)
+                if (item.No.ToLower().Trim()==groupno)
                 {
                     item.GeneralyStudent.Add(student);
                     

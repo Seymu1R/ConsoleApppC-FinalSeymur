@@ -11,7 +11,11 @@ namespace ConsoleApppSeymur
         
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Studentmanagment application");
+            MenuServices.CreateGroupMenu();
+            MenuServices.ShowGroupListMenu();
+            MenuServices.CreateStudentMenu();
+            MenuServices.ShowStudentListInGroupMenu();
+            
         }
     }
 }
