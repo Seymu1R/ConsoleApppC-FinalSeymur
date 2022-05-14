@@ -6,7 +6,7 @@ namespace ConsoleApppSeymur.Enums
 {
     enum Categories
     {
-        Programming,
+        Programming=1,
         Design,
         System_Admistrator
     }
