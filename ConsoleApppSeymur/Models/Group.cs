@@ -65,6 +65,10 @@ namespace ConsoleApppSeymur.Models
             Category = category;
             Count++;
         }
-        
+        public override string ToString()
+        {
+            return $"{No} {Category} {GeneralyStudent.Count}";
+        }
+
     }
 }

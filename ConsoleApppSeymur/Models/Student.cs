@@ -6,7 +6,7 @@ namespace ConsoleApppSeymur.Models
 {
     class Student
     {
-        public static int Id=0;
+        public  int Id=0;
         public static int Count;
         public string FullName;
         public string GroupNo;
@@ -27,6 +27,10 @@ namespace ConsoleApppSeymur.Models
             {
                 Type = false;
             }
+        }
+        public override string ToString()
+        {
+            return $"{Id} {FullName} {GroupNo} {EntryPoint} ";
         }
     }
 }

@@ -2,6 +2,7 @@
 using ConsoleApppSeymur.Models;
 using System;
 using ConsoleApppSeymur.Services;
+using System.Collections.Generic;
 
 namespace ConsoleApppSeymur
 {
@@ -10,9 +11,7 @@ namespace ConsoleApppSeymur
         
         static void Main(string[] args)
         {
-            Group group1 = new Group(true,Categories.Design);
-
-            Console.WriteLine(group1.GeneralyStudent.Capacity);
+            Console.WriteLine("Welcome to Studentmanagment application");
         }
     }
 }

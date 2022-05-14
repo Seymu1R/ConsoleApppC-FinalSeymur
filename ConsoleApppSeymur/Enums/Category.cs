@@ -9,6 +9,5 @@ namespace ConsoleApppSeymur.Enums
         Programming,
         Design,
         System_Admistrator
-
     }
 }
