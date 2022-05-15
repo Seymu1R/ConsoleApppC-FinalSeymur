@@ -9,11 +9,24 @@ namespace ConsoleApppSeymur.Services
     {
         public static AcademyServices academyservices = new AcademyServices();
         public static bool selectionresult;
+        public static int selection;
+        public static bool categoryResult;
+        public static object selectioncategory;
 
         public static void CreateGroupMenu() {
             Console.WriteLine("Zehmet olmasa grupun online ve ya ofline olmasin daxil edin \n 1-online \n 2-offline");
             goup:
-            int selection=int.Parse(Console.ReadLine());
+            try
+            {
+                selection = int.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("xais olunur reqem daxil edin");
+                goto goup;
+            }
+            
             if (selection==1)
             {                
                 selectionresult = true;                
@@ -28,19 +41,27 @@ namespace ConsoleApppSeymur.Services
                 goto goup;
             }
             Console.WriteLine("Zehmet olmasa yaratmaq istediyiniz qrupun  kateqoriyasini daxil edin");
-            object selectioncategory;
+            goup1:
             foreach (var item in Enum.GetValues(typeof(Categories)))
             {
                 Console.WriteLine((int)item + " - " + item.ToString());
-            }
-            bool categoryResult = Enum.TryParse(typeof(Categories), Console.ReadLine(), out selectioncategory);
+            }            
+            
+           categoryResult = Enum.TryParse(typeof(Categories), Console.ReadLine(), out selectioncategory);
+            if ((int)selectioncategory<1||(int)selectioncategory>3)
+            {
+                Console.WriteLine("Zehmet olmasa ekrandaki reqemleri secin");
+                goto goup1;
+
+            }            
+            
             if (categoryResult)
             {
                 academyservices.CreateGroup(selectionresult, (Categories)selectioncategory); 
             }
             else
             {
-                Console.WriteLine("nese yalnis getdi");
+                Console.WriteLine(" Qrup yarana bilmedi buna sebeb yalnis katagoriya secimi ola biler");
             }
 
 
@@ -50,9 +71,9 @@ namespace ConsoleApppSeymur.Services
         }
         public static void EditGroupMenu() {
             Console.WriteLine("zehmet olmasa deyisiklik etmek  istediyiniz qrupun nomresini daxil edin");
-            string newgroupno = Console.ReadLine();
-            Console.WriteLine("zehmet olmasa yeni qrupu daxil edin ");
             string oldgroupno = Console.ReadLine();
+            Console.WriteLine("zehmet olmasa yeni qrupu daxil edin ");
+            string newgroupno = Console.ReadLine();
             academyservices.EditGroup(oldgroupno, newgroupno);
 
         }

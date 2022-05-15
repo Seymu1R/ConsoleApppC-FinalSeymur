@@ -3,12 +3,14 @@ using System;
 using ConsoleApppSeymur.Models;
 using System.Collections.Generic;
 using System.Text;
+using ConsoleApppSeymur.Iacademyservices;
 
 
 
 namespace ConsoleApppSeymur.Services
 {
-  class AcademyServices {
+  class AcademyServices : IacademyInterfaces
+    {
 
         List<Group> _groups = new List<Group>();
         
@@ -16,8 +18,9 @@ namespace ConsoleApppSeymur.Services
         public List<Group> Groups => _groups;
 
         public  void CreateGroup(bool online, Categories category) {
-            Group group = new Group (online, category);
+            Group group = new Group (online, category);            
             Groups.Add(group);
+            Console.WriteLine(group+ "\nQrup yaradildi qrupun limiti - "+ group.limit);
             
         }
         public  void ShowGroupList() {
@@ -37,31 +40,54 @@ namespace ConsoleApppSeymur.Services
         public void EditGroup(string oldGroupNo, string newGroupNo) {
             foreach (Group group in Groups)
             {
-                if (group.No.ToLower().Trim()==newGroupNo.ToLower().Trim())
+                if (group.No.ToLower().Trim()==oldGroupNo.ToLower().Trim())
                 {
-                    Console.WriteLine("deyeismek istediyiniz qrup sitemde var");
-                    return;
+                    foreach (var groups in Groups)
+                    {
+                        if (groups.No.ToLower().Trim() != newGroupNo.ToLower().Trim())
+                        {
+                            group.No = newGroupNo;
+                            Console.WriteLine("Qrupun adi deyisdirildi");
+                            break;
+                        }
+                        else if(groups.No.ToLower().Trim() == newGroupNo.ToLower().Trim())
+                        {                            
+                            Console.WriteLine("daxil etmek istediyiniz qrup artiq sitemde var");
+                            break;
+                        }
+                        
+
+                    }
+
+                    break;
+                    
                 }
-                if (group.No.ToLower().Trim() ==oldGroupNo.ToLower().Trim())
-                {
-                    group.No = newGroupNo;
-                }
+                
                 
             }
         }
         public void ShowStudentListInGroup(string no) {
             foreach (Group item in Groups )
             {
-                if (item.No.ToLower().Trim()==no)
+                if (item.No.ToLower().Trim() == no) 
                 {
-                    foreach (Student students in item.GeneralyStudent)
+                    if (item.GeneralyStudent.Count==0)
                     {
-                        Console.WriteLine(students);
+                        Console.WriteLine("Qrupda telebe yoxdu");
+                        break;
+
+                    }
+                    foreach (Student students in item.GeneralyStudent)
+                    {                     
+                                                
+                       Console.WriteLine(students);                       
+                        
                     }
                 }
                 else
                 {
                     Console.WriteLine("bele adda qrup yoxdur");
+                    break;
                 }
             }
 
@@ -78,11 +104,15 @@ namespace ConsoleApppSeymur.Services
             }
         }
         public void CreateStudent( string fullname, string groupno, int entrypoint) {
-
-            Student student = new Student(fullname,groupno,entrypoint);
+            Student student; 
             foreach (var item in Groups)
             {
-                if (item.GeneralyStudent.Capacity > item.limit)
+                if (item.No.ToLower().Trim() != groupno)
+                {
+                    Console.WriteLine("daxil etdiyiniz adda qrup yoxdur");
+
+                }
+                if (item.GeneralyStudent.Count >= item.limit)
                 {
                     Console.WriteLine("Grup is full");
                     return; 
@@ -90,7 +120,7 @@ namespace ConsoleApppSeymur.Services
                
                 if (item.No.ToLower().Trim()==groupno)
                 {
-                    item.GeneralyStudent.Add(student);
+                    item.GeneralyStudent.Add(student = new Student(fullname, groupno, entrypoint));
                     
                 }
                 
@@ -108,6 +138,13 @@ namespace ConsoleApppSeymur.Services
                         if (students.Id==studentNo)
                         {
                             item.GeneralyStudent.Remove(students);
+                            Console.WriteLine("Telebe muveffeqiyyetle silindi");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("daxil etmek istediyiniz telebeye uygun Id yoxdur");
+                            break;
                         }
                     }
                 }

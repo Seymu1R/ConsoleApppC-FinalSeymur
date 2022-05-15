@@ -22,12 +22,14 @@ namespace ConsoleApppSeymur
                 Console.WriteLine("\n");
                 Console.WriteLine("1. Create Group");
                 Console.WriteLine("2. Show Group list,");
-                Console.WriteLine("3. Show Students list In Group");
-                Console.WriteLine("4. Show Students List");
-                Console.WriteLine("5. Create Student");
-                Console.WriteLine("6. Delete Student");
+                Console.WriteLine("3. Edit Group list");
+                Console.WriteLine("4. Show Students list In Group");
+                Console.WriteLine("5. Show Students List");
+                Console.WriteLine("6. Create Student");
+                Console.WriteLine("7. Delete Student");
                 Console.WriteLine("0. Exit");
-                selection = int.Parse(Console.ReadLine());                 
+                selection = int.Parse(Console.ReadLine());
+                Console.Clear();
                 switch (selection)
                 {
                     case 1:
@@ -37,19 +39,22 @@ namespace ConsoleApppSeymur
                     case 2:
                         MenuServices.ShowGroupListMenu();
                         break;
-
                     case 3:
+                        MenuServices.EditGroupMenu();
+                        break;
+
+                    case 4:
                         MenuServices.ShowStudentListInGroupMenu();
                         break;
-                    case 4:
+                    case 5:
                         MenuServices.ShowAllStudentsMenu();
                         break;
 
-                    case 5:
+                    case 6:
                         MenuServices.CreateStudentMenu();
                         break;
 
-                    case 6:
+                    case 7:
                         MenuServices.DeleteStudentMenu();
                         break;
 

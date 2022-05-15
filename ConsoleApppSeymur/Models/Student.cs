@@ -10,7 +10,7 @@ namespace ConsoleApppSeymur.Models
         public static int Count;
         public string FullName;
         public string GroupNo;
-        public bool Type;
+        public string Type;
         public int EntryPoint;
        
         public Student(string fullname,string groupno, int entrypoint)
@@ -19,18 +19,18 @@ namespace ConsoleApppSeymur.Models
             FullName = fullname;
             GroupNo = groupno;
             EntryPoint = entrypoint;
-            if (EntryPoint>90)
+            if (EntryPoint>=90)
             {
-                Type = true;
+                Type = "Zemanetli";
             }
             else
             {
-                Type = false;
+                Type = "Zemanetsiz";
             }
         }
         public override string ToString()
         {
-            return $"{Id} {FullName} {GroupNo} {EntryPoint} ";
+            return $" Telebenin Id nomresi - {Id}\n Telebenin ad ve soyadi - {FullName}\n Telebenin Grup nomresi - {GroupNo}\n Telebenin zemaneli ve ya zemanetsiz olmasi - {Type}";
         }
     }
 }

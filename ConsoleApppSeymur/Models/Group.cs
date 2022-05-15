@@ -67,7 +67,7 @@ namespace ConsoleApppSeymur.Models
         }
         public override string ToString()
         {
-            return $"{No} {Category} {GeneralyStudent.Count}";
+            return $"Grupun nomresi - {No} \n Grupun categoriyasi -  {Category} \n Grupdakitelebelerin sayi - {GeneralyStudent.Count}";
         }
 
     }
