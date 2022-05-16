@@ -12,11 +12,11 @@ namespace ConsoleApppSeymur.Services
   class AcademyServices : IacademyInterfaces
     {
 
-        List<Group> _groups = new List<Group>();
-        
+        List<Group> _groups = new List<Group>();       
 
         public List<Group> Groups => _groups;
-
+        bool result;
+        bool result1;
         public  void CreateGroup(bool online, Categories category) {
             Group group = new Group (online, category);            
             Groups.Add(group);
@@ -33,37 +33,54 @@ namespace ConsoleApppSeymur.Services
             }
             else
             {
-                Console.WriteLine("Qruplar bosdur");
+                Console.WriteLine("Gosterilecek qrup yoxdur");
             }
 
         }
         public void EditGroup(string oldGroupNo, string newGroupNo) {
+            
             foreach (Group group in Groups)
             {
-                if (group.No.ToLower().Trim()==oldGroupNo.ToLower().Trim())
+                
+                if (group.No.ToLower().Trim()==newGroupNo.ToLower().Trim())
                 {
-                    foreach (var groups in Groups)
-                    {
-                        if (groups.No.ToLower().Trim() != newGroupNo.ToLower().Trim())
-                        {
-                            group.No = newGroupNo;
-                            Console.WriteLine("Qrupun adi deyisdirildi");
-                            break;
-                        }
-                        else if(groups.No.ToLower().Trim() == newGroupNo.ToLower().Trim())
-                        {                            
-                            Console.WriteLine("daxil etmek istediyiniz qrup artiq sitemde var");
-                            break;
-                        }
-                        
-
-                    }
-
+                    Console.WriteLine("daxil etmek istediyiniz qrup sistemde var");
+                    result = false;
                     break;
-                    
+                }
+                else
+                {
+                    result = true;
+                }                                                           
+                
+            }
+            foreach (Group group in Groups)
+            {
+                if (group.No.ToLower().Trim() == oldGroupNo.ToLower().Trim())
+                {
+                    result1 = true;                                       
+                    break;
+                }
+                else
+                {
+                    result1 = false;                    
+                    Console.WriteLine("Deyismek istediyiniz qrup sistemde yoxdur");                   
+
                 }
                 
-                
+
+            }
+            if (result==true && result1==true)
+            {
+                foreach (var item in Groups)
+                {
+                    if (item.No.ToLower().Trim() == oldGroupNo.ToLower().Trim())
+                    {
+                        item.No = newGroupNo;
+                        Console.WriteLine("Qrup muveffeqiyyetle deyisdi");
+                    }
+                }
+
             }
         }
         public void ShowStudentListInGroup(string no) {
@@ -95,10 +112,16 @@ namespace ConsoleApppSeymur.Services
         public void ShowAllStudents() {
             foreach (Group groups in Groups)
             {
-                foreach (Student students in groups.GeneralyStudent)
+                if (groups.GeneralyStudent.Count!=0)
                 {
-                    Console.WriteLine(students);
-
+                    foreach (Student students in groups.GeneralyStudent)
+                    {
+                        Console.WriteLine(students);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Academiyada telebe yoxdur");
                 }
 
             }
@@ -107,22 +130,27 @@ namespace ConsoleApppSeymur.Services
             Student student; 
             foreach (var item in Groups)
             {
-                if (item.No.ToLower().Trim() != groupno)
+                if (item.GeneralyStudent.Count<=item.limit)
                 {
-                    Console.WriteLine("daxil etdiyiniz adda qrup yoxdur");
-
-                }
-                if (item.GeneralyStudent.Count >= item.limit)
+                    if (item.No.ToLower().Trim() == groupno.ToLower().Trim())
+                    {
+                        item.GeneralyStudent.Add(student = new Student(fullname, groupno, entrypoint));                        
+                        Console.WriteLine("Daxil etdiyiniz qrupa telebe elave edildi");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("daxil etdiyiniz adda qrup yoxdur");
+                        break;
+                    }
+                }                
+                else 
                 {
                     Console.WriteLine("Grup is full");
                     return; 
                 }
                
-                if (item.No.ToLower().Trim()==groupno)
-                {
-                    item.GeneralyStudent.Add(student = new Student(fullname, groupno, entrypoint));
-                    
-                }
+                
                 
             }
                       
