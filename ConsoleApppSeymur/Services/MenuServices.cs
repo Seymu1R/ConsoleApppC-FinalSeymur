@@ -14,7 +14,7 @@ namespace ConsoleApppSeymur.Services
         public static object selectioncategory;
 
         public static void CreateGroupMenu() {
-            Console.WriteLine("Zehmet olmasa grupun online ve ya ofline olmasin daxil edin \n 1-online \n 2-offline");
+            Console.WriteLine("Please enter the group online or offline \n 1-online \n 2-offline");
             goup:
             try
             {
@@ -23,7 +23,7 @@ namespace ConsoleApppSeymur.Services
             }
             catch (Exception)
             {
-                Console.WriteLine("xais olunur reqem daxil edin");
+                Console.WriteLine("Please enter the number");
                 goto goup;
             }
             
@@ -37,10 +37,10 @@ namespace ConsoleApppSeymur.Services
             }
             else
             { 
-                Console.WriteLine("Zehmet olmasa 1 ve ya 2 daxil edin");
+                Console.WriteLine("Please enter 1 or 2");
                 goto goup;
             }
-            Console.WriteLine("Zehmet olmasa yaratmaq istediyiniz qrupun  kateqoriyasini daxil edin");
+            Console.WriteLine("Please enter the category of the group you want to create");
             goup1:
             foreach (var item in Enum.GetValues(typeof(Categories)))
             {
@@ -48,9 +48,14 @@ namespace ConsoleApppSeymur.Services
             }            
             
            categoryResult = Enum.TryParse(typeof(Categories), Console.ReadLine(), out selectioncategory);
+            if (categoryResult==false)
+            {
+                Console.WriteLine("Please select the numbers on the screen");
+                goto goup1;
+            }
             if ((int)selectioncategory<1||(int)selectioncategory>3)
             {
-                Console.WriteLine("Zehmet olmasa ekrandaki reqemleri secin");
+                Console.WriteLine("Please select the numbers on the screen");
                 goto goup1;
 
             }            
@@ -61,7 +66,7 @@ namespace ConsoleApppSeymur.Services
             }
             else
             {
-                Console.WriteLine(" Qrup yarana bilmedi buna sebeb yalnis katagoriya secimi ola biler");
+                Console.WriteLine(" The group could not be created the reason may be the wrong category selection");
             }
 
 
@@ -70,15 +75,15 @@ namespace ConsoleApppSeymur.Services
             academyservices.ShowGroupList();
         }
         public static void EditGroupMenu() {
-            Console.WriteLine("zehmet olmasa deyisiklik etmek  istediyiniz qrupun nomresini daxil edin");
+            Console.WriteLine("Please enter the number of the group you want to change");
             string oldgroupno = Console.ReadLine();
-            Console.WriteLine("zehmet olmasa yeni qrupu daxil edin ");
+            Console.WriteLine("Please enter a new group");
             string newgroupno = Console.ReadLine();
             academyservices.EditGroup(oldgroupno, newgroupno);
 
         }
         public static void ShowStudentListInGroupMenu() {
-            Console.WriteLine("zehmet olmasa hansi qrupa baxmaq istediyinizi qeyd edin");
+            Console.WriteLine("Please include which group you want to look at");
             string grupno = Console.ReadLine();           
             
             academyservices.ShowStudentListInGroup(grupno);
@@ -87,18 +92,18 @@ namespace ConsoleApppSeymur.Services
             academyservices.ShowAllStudents();
         }
         public static void CreateStudentMenu() {
-            Console.WriteLine("Zehmet olmasa telebeni elave etmek istediyiniz grupun nomresini daxil edin");
+            Console.WriteLine("Please enter the group number you want to add students");
             string groupno= Console.ReadLine();
-            Console.WriteLine("Zehmet olmasa telebenin adini soyadini daxil edin");
+            Console.WriteLine("Please enter the name and surname of the student");
             string fullname=Console.ReadLine();
-            Console.WriteLine("Zehmet olmasa telebenin giris balini daxil edin");
+            Console.WriteLine("Please enter the student's entrypoint");
             int entrypoint = int.Parse(Console.ReadLine());
             academyservices.CreateStudent(fullname, groupno, entrypoint);
         }
         public static void DeleteStudentMenu() {
-            Console.WriteLine("Zehmet olmasa telebeni hansi grupdan sececeyinizi daxil edin");
+            Console.WriteLine("Please enter the group from which you will delete the student");
             string groupno = Console.ReadLine();
-            Console.WriteLine("Zehmet olmasa silmek istediyiniz telebenin Id sini daxil edin");
+            Console.WriteLine("Please enter the ID of the student you want to delete");
             int id = int.Parse(Console.ReadLine());
             academyservices.DeleteStudent(groupno, id);
         }

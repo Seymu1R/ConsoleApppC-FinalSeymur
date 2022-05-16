@@ -10,9 +10,11 @@ namespace ConsoleApppSeymur
     {
         
         static void Main(string[] args)
-        {                        
-            Console.ForegroundColor = ConsoleColor.Red;            
-            Console.Title = "My EducationManagerAplication";
+        {
+            Console.SetCursorPosition(20, 2);            
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;            
+            Console.Title = "Student Management System";
             Console.WriteLine(Console.Title);
             int selection;
             goup:
@@ -69,7 +71,7 @@ namespace ConsoleApppSeymur
             }
             catch (Exception)
             {
-                Console.WriteLine("zehmet olmasa reqem daxil edin");
+                Console.WriteLine("Please enter number");
                 goto goup;
             }
            

@@ -21,16 +21,16 @@ namespace ConsoleApppSeymur.Models
             EntryPoint = entrypoint;
             if (EntryPoint>=90)
             {
-                Type = "Zemanetli";
+                Type = "Guaranteed";
             }
             else
             {
-                Type = "Zemanetsiz";
+                Type = "Not guaranteed";
             }
         }
         public override string ToString()
         {
-            return $" Telebenin Id nomresi - {Id}\n Telebenin ad ve soyadi - {FullName}\n Telebenin Grup nomresi - {GroupNo}\n Telebenin zemaneli ve ya zemanetsiz olmasi - {Type}";
+            return $" Student's Id number - {Id}\n The student's name and surname - {FullName}\n Student's Group Number - {GroupNo}\n Student is guaranteed or not - {Type }";
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ConsoleApppSeymur.Services
         public  void CreateGroup(bool online, Categories category) {
             Group group = new Group (online, category);            
             Groups.Add(group);
-            Console.WriteLine(group+ "\nQrup yaradildi qrupun limiti - "+ group.limit);
+            Console.WriteLine(group+ "\n Group created and group limit - " + group.limit);
             
         }
         public  void ShowGroupList() {
@@ -32,7 +32,7 @@ namespace ConsoleApppSeymur.Services
             }
             else
             {
-                Console.WriteLine("Gosterilecek qrup yoxdur");
+                Console.WriteLine("There is no group to be displayed in the database");
             }
 
         }
@@ -46,7 +46,7 @@ namespace ConsoleApppSeymur.Services
                     if (Groups.Count==a)
                     {
                         a = 0;
-                        Console.WriteLine("Deyisiklik etmek istediyiniz qrup sistemde yoxdur");
+                        Console.WriteLine("The group you want to change does not exist in the system");
                         break;
                     }
                     
@@ -54,7 +54,7 @@ namespace ConsoleApppSeymur.Services
                 }
                 if (group.No.ToLower().Trim()==newGroupNo.ToLower().Trim())
                 {
-                    Console.WriteLine("daxil etmek istediyiniz qrup sistemde var");
+                    Console.WriteLine("The group you want to include exsist in the system");
                     result = false;
                     break;
                 }
@@ -84,7 +84,7 @@ namespace ConsoleApppSeymur.Services
                     if (item.No.ToLower().Trim() == oldGroupNo.ToLower().Trim())
                     {
                         item.No = newGroupNo;
-                        Console.WriteLine("Qrup muveffeqiyyetle deyisdi");
+                        Console.WriteLine("The group has changed successfully");
                     }
                 }
 
@@ -93,7 +93,7 @@ namespace ConsoleApppSeymur.Services
         public void ShowStudentListInGroup(string no) {
             if (Groups.Count == 0)
             {
-                Console.WriteLine("Academiyada qrup ve telebe yoxdur");
+                Console.WriteLine("There is no group or student in the system");
 
             }
             foreach (Group item in Groups )
@@ -103,7 +103,7 @@ namespace ConsoleApppSeymur.Services
                     {
                         if (item.GeneralyStudent.Count == 0)
                         {
-                            Console.WriteLine("Daxil etdiyiniz qrupda telebe yoxdur");
+                            Console.WriteLine("There is no student in the group you entered");
                             break;
 
                         }
@@ -121,7 +121,7 @@ namespace ConsoleApppSeymur.Services
                     if (a==Groups.Count)
                     {
                         a = 0;
-                        Console.WriteLine("Daxil etdiyiniz qrup yoxdur");
+                        Console.WriteLine("There is no group you entered");
                     }
                     
                 }
@@ -135,7 +135,7 @@ namespace ConsoleApppSeymur.Services
         public void ShowAllStudents() {
             if (Groups.Count == 0)
             {
-                Console.WriteLine("Academiyada qrup ve telebe yoxdur");
+                Console.WriteLine("There is no group or student in the system");
 
             }
             foreach (Group groups in Groups)
@@ -153,7 +153,7 @@ namespace ConsoleApppSeymur.Services
                     if (a==Groups.Count)
                     {
                         a = 0;
-                        Console.WriteLine("academiyada telebe yoxdur");
+                        Console.WriteLine("There is no student in the system");
                     }
                 }
 
@@ -163,7 +163,7 @@ namespace ConsoleApppSeymur.Services
             Student student;
             if (Groups.Count == 0)
             {
-                Console.WriteLine("Academiyada qrup yoxdur və tələbə daxil edilmedi");
+                Console.WriteLine("There is no group in the system and  students not  included");
                 
             }
             foreach (var item in Groups)
@@ -174,12 +174,12 @@ namespace ConsoleApppSeymur.Services
                     if (item.GeneralyStudent.Count <= item.limit)
                     {
                         item.GeneralyStudent.Add(student = new Student(fullname, groupno, entrypoint));
-                        Console.WriteLine("Daxil etdiyiniz qrupa telebe elave edildi");
+                        Console.WriteLine("Student was added to the group you entered");
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Grup is full");
+                        Console.WriteLine("Grup is full and student was not added to the group");
                         break;
                     }
                 }
@@ -189,7 +189,7 @@ namespace ConsoleApppSeymur.Services
                     if (a == Groups.Count)
                     {
                         a = 0;
-                        Console.WriteLine("Daxil etdiyiniz qrup sistemde yoxdur");
+                        Console.WriteLine("The group you entered is not in the system");
                         break;
                     }
                 }                           
@@ -207,25 +207,25 @@ namespace ConsoleApppSeymur.Services
             {
                 if (Groups.Count == 0)
                 {
-                    Console.WriteLine("Academiyada qrup ve telebe yoxdur");
+                    Console.WriteLine("There is no group or student in the system");
                 }
                 if (item.No.ToLower().Trim() == groupNo.ToLower().Trim())
                 {
                     if (item.GeneralyStudent.Count==0)
                     {
-                        Console.WriteLine("Qrup bosdur silinecek telebe yoxdur");
+                        Console.WriteLine("The group is empty and there are no students to delete");
                     }
                     foreach (var students in item.GeneralyStudent)
                     {
                         if (students.Id == studentNo)
                         {
                             item.GeneralyStudent.Remove(students);
-                            Console.WriteLine("Telebe muveffeqiyyetle silindi");
+                            Console.WriteLine("Student was successfully deleted");
                             break;
                         }
                         else
                         {
-                            Console.WriteLine("daxil etmek istediyiniz telebeye uygun Id yoxdur");
+                            Console.WriteLine("There is no Id suitable for the student you want to delete");
                             break;
                         }
                     }
@@ -236,7 +236,7 @@ namespace ConsoleApppSeymur.Services
                     if (a == Groups.Count)
                     {
                         a = 0;
-                        Console.WriteLine("Daxil etdiyiniz qrup sistemde yoxdur");
+                        Console.WriteLine("The included group does not exist in the system");
                         break;
                     }
 
