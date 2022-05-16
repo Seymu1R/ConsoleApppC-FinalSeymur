@@ -79,7 +79,8 @@ namespace ConsoleApppSeymur.Services
         }
         public static void ShowStudentListInGroupMenu() {
             Console.WriteLine("zehmet olmasa hansi qrupa baxmaq istediyinizi qeyd edin");
-            string grupno = Console.ReadLine();
+            string grupno = Console.ReadLine();           
+            
             academyservices.ShowStudentListInGroup(grupno);
         }
         public static void ShowAllStudentsMenu() {
